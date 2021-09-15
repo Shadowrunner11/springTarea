@@ -35,12 +35,12 @@ public class PersonaController {
     @PostMapping("/save")
     public String save(Persona persona, Model model){
         personaServiceApi.save(persona);
-        return "redirect:/";
+        return "redirect:/adminPersona";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id, Model mode){
         personaServiceApi.delete(id);
-        return "redirect:/";
+        return "redirect:/adminPersona";
     }
 }

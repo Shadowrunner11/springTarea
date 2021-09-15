@@ -2,7 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body{
+        background: linear-gradient(to bottom, rgb(24, 240, 48), white);
+        background-repeat: no-repeat;}
+    </style>
     <title>Personas</title>
 </head>
 <body>
@@ -10,7 +15,7 @@
 <div class="container">
     <br>
     <div>
-        <a href="/save/0" class="btn btn-primary">Agregar</a>
+        <a href="/save/0" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">+</i></a>
         <a href="/catalogo">Catalogo</a>
     </div>
     <div style="margin-top:20px;">
@@ -19,7 +24,7 @@
     <h2 th:if="${list.isEmpty()}">No hay personas</h2>
     <div th:if="${!list.isEmpty()}">
         <h2>Personas</h2>
-        <table class="table">
+        <table class="responsive-table">
             <thead>
             <tr>
                 <th>Nombre</th>
@@ -36,8 +41,8 @@
                 <td th:text="${persona.apellido}">
                 <td th:text="${persona.direccion}">
                 <td th:text="${persona.telefono}">
-                <td><a class="btn btn-info" th:href="@{/save/{id}(id=${persona.id})}">Editar</a></td>
-                <td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${persona.id})}">Eliminar</a></td>
+                <td><a class="waves-effect waves-light btn" th:href="@{/save/{id}(id=${persona.id})}">Editar</a></td>
+                <td><a class="waves-effect waves-light btn red" th:href="@{/delete/{id}(id=${persona.id})}">Eliminar</a></td>
             </tr>
             </tbody>
         </table>
